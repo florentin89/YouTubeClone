@@ -14,7 +14,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func fetchVideos(){
         
-        guard let url = URL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json") else {return}
+        guard let url = URL(string: "https://raw.githubusercontent.com/tygruletz/YouTubeClone/master/videos.json") else {return}
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let dataResponse = data,
                 error == nil else {
