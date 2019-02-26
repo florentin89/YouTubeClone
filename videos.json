@@ -30,16 +30,6 @@
     "duration": 210
   },
   {
-    "title": "PSY - GANGNAM STYLE(강남스타일) M/V",
-    "number_of_views": 3296755102,
-    "thumbnail_image_name": "https:\/\/i.ytimg.com\/vi\/9bZkp7q19f0\/maxresdefault.jpg",
-    "channel": {
-      "name": "officialpsy",
-      "profile_image_name": "https:\/\/yt3.ggpht.com\/-0Xgl841SU7Y/AAAAAAAAAAI\/AAAAAAAAAMY\/XS0SI0UC1V0\/s176-nd-c-c0xffffffff-rj-k-no\/photo.jpg"
-    },
-    "duration": 282
-  },
-  {
     "title": "Beyonce - Put A Ring On It",
     "number_of_views": 52321223,
     "thumbnail_image_name": "https:\/\/s3-us-west-2.amazonaws.com\/youtubeassets\/beyonce_put_a_ring_on_it.jpg",
@@ -79,4 +69,14 @@
     },
     "duration": 189
   },
+    {
+    "title": "PSY - GANGNAM STYLE(강남스타일) M/V",
+    "number_of_views": 3296755102,
+    "thumbnail_image_name": "https:\/\/i.ytimg.com\/vi\/9bZkp7q19f0\/maxresdefault.jpg",
+    "channel": {
+      "name": "officialpsy",
+      "profile_image_name": "https:\/\/yt3.ggpht.com\/-0Xgl841SU7Y/AAAAAAAAAAI\/AAAAAAAAAMY\/XS0SI0UC1V0\/s176-nd-c-c0xffffffff-rj-k-no\/photo.jpg"
+    },
+    "duration": 282
+  }
 ]
