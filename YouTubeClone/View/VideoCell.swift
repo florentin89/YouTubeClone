@@ -56,7 +56,6 @@ class VideoCell: BaseCell {
                     titleLabelHeightConstraint?.constant = 20
                 }
             }
-            
         }
     }
     
@@ -68,7 +67,7 @@ class VideoCell: BaseCell {
     
     func setupThumbnailImage(){
         if let thumbnailImageURL = video?.thumbnailImageName {
-           thumbnnailImageView.loadImageFromURL(urlString: thumbnailImageURL)
+            thumbnnailImageView.loadImageFromURL(urlString: thumbnailImageURL)
         }
     }
     
@@ -86,7 +85,7 @@ class VideoCell: BaseCell {
     let userProfileImageView: CustomImageView = {
         
         let imageView = CustomImageView()
-        imageView.backgroundColor = UIColor.green
+        imageView.backgroundColor = UIColor.white
         imageView.image = UIImage(named: "crazy_frog_profile_picture")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 22 // to make the avatar bound
@@ -99,7 +98,7 @@ class VideoCell: BaseCell {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Axel F - Crazy Frog"
+        label.text = "Katy Perry - Roar"
         label.numberOfLines = 0
         return label
     }()
@@ -107,7 +106,7 @@ class VideoCell: BaseCell {
     let subtitleTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "Crazy Frog • 1,552,967,485 views • 9 years ago"
+        textView.text = "Katy Perry • 2,755,418,109 views • 5 years ago"
         textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return textView
     }()

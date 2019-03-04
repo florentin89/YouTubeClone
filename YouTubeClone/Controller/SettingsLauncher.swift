@@ -10,18 +10,29 @@ import UIKit
 
 class Settings: NSObject {
     
-    let name: String
+    let name: SettingsName
     let imageName: String
     
-    init(name: String, imageName: String){
+    init(name: SettingsName, imageName: String){
         
         self.name = name
         self.imageName = imageName
     }
 }
 
+enum SettingsName: String {
+    
+    case Settings = "Settings"
+    case Terms = "Terms & privacy policy"
+    case Feedback = "Send Feedback"
+    case Help = "Help"
+    case SwitchAccount = "Switch Account"
+    case Cancel = "Cancel"
+    
+}
+
 class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-   
+    
     override init() {
         super.init()
         
@@ -43,12 +54,15 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     let cellHeight: CGFloat = 50
     
     let settings: [Settings] = {
-       return [Settings(name: "Settings", imageName: "settings"),
-        Settings(name: "Terms & Privacy policy", imageName: "privacy"),
-        Settings(name: "Send Feedback", imageName: "feedback"),
-        Settings(name: "Help", imageName: "help"),
-        Settings(name: "Switch Account", imageName: "switch_account"),
-        Settings(name: "Cancel", imageName: "cancel")]
+        
+        let settingsSetting = Settings(name: .Settings, imageName: "settings")
+        let termsPrivacySetting = Settings(name: .Terms, imageName: "privacy")
+        let feedbackSettings = Settings(name: .Feedback, imageName: "feedback")
+        let helpSettings = Settings(name: .Help, imageName: "help")
+        let switchAccountSettings = Settings(name: .SwitchAccount, imageName: "switch_account")
+        let cancelSetting = Settings(name: .Cancel, imageName: "cancel")
+        
+        return [settingsSetting, termsPrivacySetting, feedbackSettings, helpSettings, switchAccountSettings, cancelSetting]
     }()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -119,7 +133,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
         }, completion: { (_) in
-            if setting.name != "" && setting.name != "Cancel" {
+            if setting.name != .Cancel {
                 self.homeController?.showControllerForSetting(setting: setting)
             }
         })
