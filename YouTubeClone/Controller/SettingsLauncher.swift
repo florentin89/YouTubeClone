@@ -14,21 +14,18 @@ class Settings: NSObject {
     let imageName: String
     
     init(name: SettingsName, imageName: String){
-        
         self.name = name
         self.imageName = imageName
     }
 }
 
 enum SettingsName: String {
-    
-    case Settings = "Settings"
-    case Terms = "Terms & privacy policy"
-    case Feedback = "Send Feedback"
-    case Help = "Help"
-    case SwitchAccount = "Switch Account"
-    case Cancel = "Cancel"
-    
+    case settings = "Settings"
+    case terms = "Terms & privacy policy"
+    case feedback = "Send Feedback"
+    case help = "Help"
+    case switchAccount = "Switch Account"
+    case cancel = "Cancel"
 }
 
 class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -38,11 +35,13 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(SettingsCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(SettingsCell.self, forCellWithReuseIdentifier: Constants.cellID)
     }
     
     let blackView = UIView()
+    let cellHeight: CGFloat = 50
     var homeController: HomeController?
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -50,38 +49,29 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         return cv
     }()
     
-    let cellID = "cellID"
-    let cellHeight: CGFloat = 50
-    
     let settings: [Settings] = {
-        
-        let settingsSetting = Settings(name: .Settings, imageName: "settings")
-        let termsPrivacySetting = Settings(name: .Terms, imageName: "privacy")
-        let feedbackSettings = Settings(name: .Feedback, imageName: "feedback")
-        let helpSettings = Settings(name: .Help, imageName: "help")
-        let switchAccountSettings = Settings(name: .SwitchAccount, imageName: "switch_account")
-        let cancelSetting = Settings(name: .Cancel, imageName: "cancel")
+        let settingsSetting = Settings(name: .settings, imageName: Constants.settings)
+        let termsPrivacySetting = Settings(name: .terms, imageName: Constants.privacy)
+        let feedbackSettings = Settings(name: .feedback, imageName: Constants.feedback)
+        let helpSettings = Settings(name: .help, imageName: Constants.help)
+        let switchAccountSettings = Settings(name: .switchAccount, imageName: Constants.switchAccount)
+        let cancelSetting = Settings(name: .cancel, imageName: Constants.cancel)
         
         return [settingsSetting, termsPrivacySetting, feedbackSettings, helpSettings, switchAccountSettings, cancelSetting]
     }()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return settings.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! SettingsCell
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as! SettingsCell
         let setting = settings[indexPath.item]
         cell.setting = setting
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: collectionView.frame.width, height: cellHeight)
     }
     
@@ -90,7 +80,6 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let setting = self.settings[indexPath.item]
         handleDismiss(setting: setting)
     }
@@ -101,9 +90,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         if let window = UIApplication.shared.keyWindow{
             
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
-            
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
-            
             window.addSubview(blackView)
             window.addSubview(collectionView)
             
@@ -111,16 +98,13 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             let y = window.frame.height - height
             
             collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
-            
             blackView.frame = window.frame
             blackView.alpha = 0
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-                
                 self.blackView.alpha = 1
                 self.collectionView.frame = CGRect(x: 0, y: y, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }, completion: nil)
-            
         }
     }
     
@@ -128,12 +112,11 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     @objc func handleDismiss(setting: Settings) {
         UIView.animate(withDuration: 0.5, animations: {
             self.blackView.alpha = 0
-            
             if let window = UIApplication.shared.keyWindow {
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
         }, completion: { (_) in
-            if setting.name != .Cancel {
+            if setting.name != .cancel {
                 self.homeController?.showControllerForSetting(setting: setting)
             }
         })

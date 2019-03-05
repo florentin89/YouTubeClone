@@ -8,13 +8,11 @@
 
 import UIKit
 
+// Create a Subscription section with videos
 class SubscriptionsCell: FeedCell {
-    
-    
     override func fetchVideos() {
         
         ApiService.sharedInstance.fetchSubscriptionsFeed { (videos: [Video]) in
-            
             self.videos = videos
             self.collectionView.reloadData()
         }

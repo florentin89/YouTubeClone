@@ -10,17 +10,14 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId"
-    let trendingCellId = "trendingCellId"
-    let subscriptionsCellId = "subscriptionsCellId"
-    let titles = ["Home", "Trending", "Subscriptions", "Account"]
+    let titles = [Constants.home.capitalized, Constants.trending.capitalized, Constants.subscriptions.capitalized, Constants.account.capitalized]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.navigationBar.isTranslucent = false
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
-        titleLabel.text = "  Home"
+        titleLabel.text = Constants.homeTitle
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
@@ -37,18 +34,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             flowLayout.minimumLineSpacing = 0
         }
         collectionView.backgroundColor = UIColor.white
-        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
-        collectionView.register(SubscriptionsCell.self, forCellWithReuseIdentifier: subscriptionsCellId)
+        collectionView.register(FeedCell.self, forCellWithReuseIdentifier: Constants.cellID)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: Constants.trendingCellId)
+        collectionView.register(SubscriptionsCell.self, forCellWithReuseIdentifier: Constants.subscriptionsCellId)
         collectionView.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0) // push the collection view (first video cell) 50 pixels down
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0) // allign the scroll with the Menu Bar top edge
         collectionView.isPagingEnabled = true
     }
     
     func setupNavigationBarButtons(){
-        let searchImage = UIImage(named: "search_icon")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(named: Constants.searchIcon)?.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, landscapeImagePhone: searchImage, style: .plain, target: self, action: #selector(handleSearch))
-        let moreButton = UIImage(named: "nav_more_icon")?.withRenderingMode(.alwaysOriginal)
+        let moreButton = UIImage(named: Constants.moreIcon)?.withRenderingMode(.alwaysOriginal)
         let moreBarButtonItem = UIBarButtonItem(image: moreButton, landscapeImagePhone: moreButton, style: .plain, target: self, action: #selector(handleMore))
         navigationItem.rightBarButtonItems = [moreBarButtonItem, searchBarButtonItem]
     }
@@ -73,6 +70,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         settingsLauncher.showSettings()
     }
     
+    // Select the Subscriptions icon when you press the search bar
     @objc func handleSearch() {
         scrollToMenuIndex(menuIndex: 2)
     }
@@ -139,13 +137,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let identifier: String
         
         if indexPath.item == 1 {
-            identifier = trendingCellId
+            identifier = Constants.trendingCellId
         }
         else if indexPath.item == 2 {
-            identifier = subscriptionsCellId
+            identifier = Constants.subscriptionsCellId
         }
         else{
-            identifier = cellId
+            identifier = Constants.cellID
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)

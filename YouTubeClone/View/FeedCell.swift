@@ -11,9 +11,9 @@ import UIKit
 // Contains each of the section inside of the CollectionView
 class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId"
     var videos: [Video]?
     
+    // Create a collection view programatically
     lazy var collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +43,7 @@ class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, 
         addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         
-        collectionView.register(VideoCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(VideoCell.self, forCellWithReuseIdentifier: Constants.cellID)
     }
     
     // Set the number of videos in the list
@@ -54,9 +54,8 @@ class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, 
     // Set the properties of each video cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as! VideoCell
         cell.video = videos?[indexPath.item]
-        
         return cell
     }
     
@@ -69,5 +68,11 @@ class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = (frame.width - 16 - 16) * 9 / 16
         return CGSize(width: frame.width, height: height + 16 + 88)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let videoLauncher = VideoLauncher()
+        videoLauncher.showVideoPlayer()
     }
 }

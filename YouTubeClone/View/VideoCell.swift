@@ -8,21 +8,6 @@
 
 import UIKit
 
-class BaseCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews(){
-        
-    }
-}
-
 // Customize the video Cell
 class VideoCell: BaseCell {
     
@@ -34,14 +19,13 @@ class VideoCell: BaseCell {
             setupThumbnailImage()
             setupProfileImage()
             
-            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews, let numberOfLikes = video?.numberOfLikes{
                 
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
                 
-                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 9  years ago"
+                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews as NSNumber)!) • \(numberOfLikes) Likes"
                 subtitleTextView.text = subtitleText
-                
             }
             
             //measure title text
@@ -98,7 +82,7 @@ class VideoCell: BaseCell {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Katy Perry - Roar"
+        label.text = Constants.defaultArtistName
         label.numberOfLines = 0
         return label
     }()
@@ -106,7 +90,7 @@ class VideoCell: BaseCell {
     let subtitleTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "Katy Perry • 2,755,418,109 views • 5 years ago"
+        textView.text = Constants.defaultVideoViews
         textView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return textView
     }()

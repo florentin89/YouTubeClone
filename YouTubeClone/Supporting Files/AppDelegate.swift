@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
+        //application.statusBarStyle = .lightContent
+        
         let statusBarBackgroundView = UIView()
         statusBarBackgroundView.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31)
         

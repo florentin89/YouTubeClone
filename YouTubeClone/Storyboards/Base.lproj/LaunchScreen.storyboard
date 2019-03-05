@@ -1,25 +1,68 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3va-tb-1Fh">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="Y6N-Vs-uYs">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="3va-tb-1Fh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z80-IO-9mv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Florentin Lupascu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkx-vP-hzw">
+                                <rect key="frame" x="130" y="816" width="154.5" height="26"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTubeClone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raE-hg-38t">
+                                <rect key="frame" x="100.5" y="424.5" width="213.5" height="47"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="36"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.1118306135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-7o-hDf">
+                                <rect key="frame" x="140" y="528.5" width="134.5" height="39"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="30"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YouTube_icon" translatesAutoresizingMaskIntoConstraints="NO" id="P5X-yO-OUh">
+                                <rect key="frame" x="143" y="288" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P5X-yO-OUh" secondAttribute="height" multiplier="1:1" id="l9e-44-bXh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A4l-7o-hDf" firstAttribute="centerX" secondItem="z80-IO-9mv" secondAttribute="centerX" id="3WH-2K-ert"/>
+                            <constraint firstItem="raE-hg-38t" firstAttribute="centerY" secondItem="z80-IO-9mv" secondAttribute="centerY" id="3wO-Qs-WQp"/>
+                            <constraint firstItem="P5X-yO-OUh" firstAttribute="leading" secondItem="kfK-px-tpw" secondAttribute="leading" constant="143" id="LBF-Ke-amd"/>
+                            <constraint firstItem="A4l-7o-hDf" firstAttribute="centerY" secondItem="z80-IO-9mv" secondAttribute="centerY" constant="100" id="RcX-MP-33K"/>
+                            <constraint firstItem="raE-hg-38t" firstAttribute="centerX" secondItem="z80-IO-9mv" secondAttribute="centerX" id="Zcn-3t-Zlm"/>
+                            <constraint firstItem="tkx-vP-hzw" firstAttribute="centerX" secondItem="z80-IO-9mv" secondAttribute="centerX" id="bkd-4T-18t"/>
+                            <constraint firstItem="raE-hg-38t" firstAttribute="top" secondItem="P5X-yO-OUh" secondAttribute="bottom" constant="8.5" id="f6B-Rg-9EV"/>
+                            <constraint firstItem="kfK-px-tpw" firstAttribute="bottom" secondItem="tkx-vP-hzw" secondAttribute="bottom" constant="20" id="jQE-41-VSl"/>
+                            <constraint firstItem="kfK-px-tpw" firstAttribute="trailing" secondItem="P5X-yO-OUh" secondAttribute="trailing" constant="143" id="rqq-8u-CQw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kfK-px-tpw"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nby-4l-5BF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.33035714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="YouTube_icon" width="2000" height="2000"/>
+    </resources>
 </document>

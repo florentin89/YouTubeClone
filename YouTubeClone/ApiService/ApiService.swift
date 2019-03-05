@@ -9,63 +9,38 @@
 import UIKit
 
 class ApiService: NSObject {
-
+    
     static let sharedInstance = ApiService()
-    let baseUrl = "https://raw.githubusercontent.com/tygruletz/YouTubeClone/master"
+    let baseUrl = Constants.baseUrlJSON
     
     // Get videos from different API's using this general method
     func fetchFeedForUrlString(urlString: String, completion: @escaping ([Video]) -> ()){
-        
-        guard let url = URL(string: urlString) else {return}
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let dataResponse = data,
-                error == nil else {
-                    print(error?.localizedDescription ?? "Response Error")
-                    return }
-            do{
-                //here dataResponse received from a network request
-                let jsonResponse = try JSONSerialization.jsonObject(with:
-                    dataResponse, options: [])
-                
-                var videos = [Video]()
-                
-                for dictionary in jsonResponse as! [[String: AnyObject]] {
-                    
-                    let video = Video()
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
-                    
-                    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    video.channel = channel
-                    videos.append(video)
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                    return
                 }
-                
-                DispatchQueue.main.async {
-                    completion(videos)
-                }
-            } catch let parsingError {
-                print("Error", parsingError)
+                guard let data = data else { return }
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    completion(try decoder.decode([Video].self, from: data))
+                } catch let jsonError { print(Constants.failedDecode, jsonError) }
             }
-            
-        }
-        task.resume()
+            }.resume()
     }
     
     func fetchVideos(completion: @escaping ([Video]) -> ()){
-        fetchFeedForUrlString(urlString: "\(baseUrl)/home.json", completion: completion)
+        fetchFeedForUrlString(urlString: Constants.baseUrlJSON + Constants.homeJSON, completion: completion)
     }
     
     func fetchTrendingFeed(completion: @escaping ([Video]) -> ()){
-        fetchFeedForUrlString(urlString: "\(baseUrl)/trending.json", completion: completion)
+        fetchFeedForUrlString(urlString: Constants.baseUrlJSON + Constants.trendingJSON, completion: completion)
     }
     
     func fetchSubscriptionsFeed(completion: @escaping ([Video]) -> ()){
-        fetchFeedForUrlString(urlString: "\(baseUrl)/subscriptions.json", completion: completion)
+        fetchFeedForUrlString(urlString: Constants.baseUrlJSON + Constants.subscriptionsJSON, completion: completion)
     }
-    
-    
 }
