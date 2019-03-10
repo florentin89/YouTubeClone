@@ -1,8 +1,8 @@
 # YouTubeClone
 
-**Version 1.0.0
+**Version 1.0.0**
 
-**Swift 5.0
+**Swift 5.0**
 
 This project represent a clone of YouTube platform and was created for personal use and also to improve my iOS skills and knowledges.
 All classes and controls was created programatically without to use the Storyboard !!!
