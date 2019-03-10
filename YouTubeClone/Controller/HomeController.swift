@@ -56,13 +56,34 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return launcher
     }()
     
-    func showControllerForSetting(setting: Settings) {
-        let dummySettingsViewController = UIViewController()
-        dummySettingsViewController.view.backgroundColor = UIColor.white
-        dummySettingsViewController.navigationItem.title = setting.name.rawValue
+    func showDummyControllerForSetting(setting: Settings) {
+        
+        let dummyCtrl = UIViewController()
+        dummyCtrl.navigationItem.title = setting.name.rawValue
+        dummyCtrl.view.backgroundColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.pushViewController(dummySettingsViewController, animated: true)
+        navigationController?.pushViewController(dummyCtrl, animated: true)
+    }
+    
+    func showControllerForAccountSettings(setting: Settings){
+        
+        let accSettingsCtrl = AccountSettingsController()
+        self.view.addSubview(accSettingsCtrl.accountSettingsView)
+        accSettingsCtrl.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.pushViewController(accSettingsCtrl, animated: true)
+    }
+    
+    func showControllerForTermsAndPrivacy(setting: Settings){
+        
+        let termsController = TermsAndPrivacyController()
+        self.view.addSubview(termsController.termsAndPrivacyView)
+        termsController.navigationItem.title = setting.name.rawValue
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.pushViewController(termsController, animated: true)
     }
     
     // Pop up a menu with animation when you press the More Button

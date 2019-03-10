@@ -10,22 +10,23 @@ import UIKit
 
 class Settings: NSObject {
     
-    let name: SettingsName
+    enum Name: String {
+        case
+        settings = "Settings",
+        terms = "Terms & privacy policy",
+        feedback = "Send Feedback",
+        help = "Help",
+        switchAccount = "Switch Account",
+        cancel = "Cancel"
+    }
+    
+    let name: Name
     let imageName: String
     
-    init(name: SettingsName, imageName: String){
+    init(name: Name, imageName: String){
         self.name = name
         self.imageName = imageName
     }
-}
-
-enum SettingsName: String {
-    case settings = "Settings"
-    case terms = "Terms & privacy policy"
-    case feedback = "Send Feedback"
-    case help = "Help"
-    case switchAccount = "Switch Account"
-    case cancel = "Cancel"
 }
 
 class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -116,8 +117,16 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
         }, completion: { (_) in
-            if setting.name != .cancel {
-                self.homeController?.showControllerForSetting(setting: setting)
+            
+            switch setting.name {
+            case .settings:
+                self.homeController?.showControllerForAccountSettings(setting: setting)
+            case .terms:
+                self.homeController?.showControllerForTermsAndPrivacy(setting: setting)
+            case .cancel:
+                break
+            default:
+                self.homeController?.showDummyControllerForSetting(setting: setting)
             }
         })
     }

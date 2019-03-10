@@ -45,5 +45,37 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+<!--    Here we create alternate icons for the app-->
+    <key>CFBundleIcons</key>
+    <dict>
+        <key>CFBundlePrimaryIcon</key>
+        <dict>
+            <key>CFBundleIconFiles</key>
+            <array>
+<!--                Name of the default icon from the Assets folder -->
+                <string>Icon-App-60x60</string>
+            </array>
+        </dict>
+        <key>CFBundleAlternateIcons</key>
+        <dict>
+            
+            <key>darkAppIcon</key>
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+<!--                    This is the name of the file from the Bundle folder. In my case is ytcDarkIcon@2x.png. But we don't include anything after @. -->
+                    <string>ytcDarkIcon</string>
+                </array>
+            </dict>
+            
+            <key>lightAppIcon</key> <!-- This name is referencing in AppIconService.swift -->
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>ytcLightIcon</string>
+                </array>
+            </dict>
+        </dict>
+    </dict>
 </dict>
 </plist>

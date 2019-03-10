@@ -14,6 +14,13 @@
 		079E73E1222CA78700626A76 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079E73E0222CA78700626A76 /* TrendingCell.swift */; };
 		079E73E3222CAC1200626A76 /* SubscriptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079E73E2222CAC1200626A76 /* SubscriptionsCell.swift */; };
 		079E73E5222D9EFD00626A76 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079E73E4222D9EFD00626A76 /* VideoLauncher.swift */; };
+		07D058342233E4C300394801 /* AccountSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D058332233E4C300394801 /* AccountSettingsController.swift */; };
+		07D0584222342F8500394801 /* AppIconService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D0584122342F8500394801 /* AppIconService.swift */; };
+		07D058442234783200394801 /* TermsAndPrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D058432234783200394801 /* TermsAndPrivacyController.swift */; };
+		07D0584722348FF600394801 /* ytcDarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D0584522348FF600394801 /* ytcDarkIcon@2x.png */; };
+		07D0584822348FF600394801 /* ytcDarkIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D0584622348FF600394801 /* ytcDarkIcon@3x.png */; };
+		07D0584B2234900800394801 /* ytcLightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D058492234900800394801 /* ytcLightIcon@2x.png */; };
+		07D0584C2234900800394801 /* ytcLightIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D0584A2234900800394801 /* ytcLightIcon@3x.png */; };
 		07E2BBF72221F9CC001DE7F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2BBF62221F9CC001DE7F7 /* Constants.swift */; };
 		07E81F69221B133100A0073E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E81F68221B133100A0073E /* AppDelegate.swift */; };
 		07E81F6B221B133100A0073E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E81F6A221B133100A0073E /* HomeController.swift */; };
@@ -55,6 +62,13 @@
 		079E73E0222CA78700626A76 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		079E73E2222CAC1200626A76 /* SubscriptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsCell.swift; sourceTree = "<group>"; };
 		079E73E4222D9EFD00626A76 /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
+		07D058332233E4C300394801 /* AccountSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsController.swift; sourceTree = "<group>"; };
+		07D0584122342F8500394801 /* AppIconService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconService.swift; sourceTree = "<group>"; };
+		07D058432234783200394801 /* TermsAndPrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndPrivacyController.swift; sourceTree = "<group>"; };
+		07D0584522348FF600394801 /* ytcDarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ytcDarkIcon@2x.png"; sourceTree = "<group>"; };
+		07D0584622348FF600394801 /* ytcDarkIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ytcDarkIcon@3x.png"; sourceTree = "<group>"; };
+		07D058492234900800394801 /* ytcLightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ytcLightIcon@2x.png"; sourceTree = "<group>"; };
+		07D0584A2234900800394801 /* ytcLightIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ytcLightIcon@3x.png"; sourceTree = "<group>"; };
 		07E2BBF62221F9CC001DE7F7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		07E81F65221B133100A0073E /* YouTubeClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E81F68221B133100A0073E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +124,33 @@
 			path = ApiService;
 			sourceTree = "<group>";
 		};
+		07D058352233E68700394801 /* Alternate Icons */ = {
+			isa = PBXGroup;
+			children = (
+				07D058362233E70F00394801 /* DarkAppIcon */,
+				07D058372233E71F00394801 /* LightAppIcon */,
+			);
+			path = "Alternate Icons";
+			sourceTree = "<group>";
+		};
+		07D058362233E70F00394801 /* DarkAppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				07D0584522348FF600394801 /* ytcDarkIcon@2x.png */,
+				07D0584622348FF600394801 /* ytcDarkIcon@3x.png */,
+			);
+			path = DarkAppIcon;
+			sourceTree = "<group>";
+		};
+		07D058372233E71F00394801 /* LightAppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				07D058492234900800394801 /* ytcLightIcon@2x.png */,
+				07D0584A2234900800394801 /* ytcLightIcon@3x.png */,
+			);
+			path = LightAppIcon;
+			sourceTree = "<group>";
+		};
 		07E81F5C221B133100A0073E = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +174,7 @@
 		07E81F67221B133100A0073E /* YouTubeClone */ = {
 			isa = PBXGroup;
 			children = (
+				07D058352233E68700394801 /* Alternate Icons */,
 				079E73DB222C88FD00626A76 /* ApiService */,
 				07FF4C8B221DE1F300F223EC /* Model */,
 				07FF4C87221DE11800F223EC /* View */,
@@ -183,6 +225,9 @@
 				07E81F6A221B133100A0073E /* HomeController.swift */,
 				07FF4C93221F27F800F223EC /* SettingsLauncher.swift */,
 				079E73E4222D9EFD00626A76 /* VideoLauncher.swift */,
+				07D0584122342F8500394801 /* AppIconService.swift */,
+				07D058332233E4C300394801 /* AccountSettingsController.swift */,
+				07D058432234783200394801 /* TermsAndPrivacyController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,8 +375,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D0584B2234900800394801 /* ytcLightIcon@2x.png in Resources */,
 				07E81F73221B133200A0073E /* LaunchScreen.storyboard in Resources */,
+				07D0584C2234900800394801 /* ytcLightIcon@3x.png in Resources */,
 				07E81F70221B133200A0073E /* Assets.xcassets in Resources */,
+				07D0584822348FF600394801 /* ytcDarkIcon@3x.png in Resources */,
+				07D0584722348FF600394801 /* ytcDarkIcon@2x.png in Resources */,
 				07E81F6E221B133100A0073E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D058342233E4C300394801 /* AccountSettingsController.swift in Sources */,
 				079E73E3222CAC1200626A76 /* SubscriptionsCell.swift in Sources */,
 				07E81F6B221B133100A0073E /* HomeController.swift in Sources */,
 				07FF4C91221E25AC00F223EC /* Video.swift in Sources */,
@@ -369,7 +419,9 @@
 				079E73DD222C891E00626A76 /* ApiService.swift in Sources */,
 				079E73E1222CA78700626A76 /* TrendingCell.swift in Sources */,
 				07F0B9C7221FB68600AF1DCD /* SettingsCell.swift in Sources */,
+				07D058442234783200394801 /* TermsAndPrivacyController.swift in Sources */,
 				07FF4C8F221DF5FC00F223EC /* MenuBar.swift in Sources */,
+				07D0584222342F8500394801 /* AppIconService.swift in Sources */,
 				07191DC4222EEC5C0060CC77 /* BaseCell.swift in Sources */,
 				07191DC6222EECF30060CC77 /* MenuCell.swift in Sources */,
 				07E2BBF72221F9CC001DE7F7 /* Constants.swift in Sources */,
@@ -557,7 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.florentin.YouTubeClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -576,7 +628,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.florentin.YouTubeClone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
